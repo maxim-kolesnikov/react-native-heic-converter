@@ -5,6 +5,17 @@
 
 `$ npm install react-native-heic-converter --save`
 
+### Install with NPM
+```javascript
+"dependencies": {
+    ...
+    "react-native-heic-converter": "github:makskolesnikov/react-native-heic-converter",
+    ...
+}
+```
+
+`$ npm i`
+
 ### Mostly automatic installation
 
 `$ react-native link react-native-heic-converter`
@@ -24,7 +35,11 @@
 ```javascript
 import RNHeicConverter from 'react-native-heic-converter';
 
-// TODO: What to do with the module?
-RNHeicConverter;
+RNHeicConverter.getJpgPath({
+    uri: you_string_uri,
+}, (error, result) => {
+    console.log(error, result); // null, { success: true, path: "path/to/jpg" }
+});
+
 ```
   
