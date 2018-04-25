@@ -5,16 +5,13 @@
 
 `$ npm install react-native-heic-converter --save`
 
-### Install with NPM
-```javascript
-"dependencies": {
-    ...
-    "react-native-heic-converter": "github:makskolesnikov/react-native-heic-converter",
-    ...
-}
-```
+## Features
 
-`$ npm i`
+- [x] Returns the data for the specified image in JPEG format.
+- [ ] Returns the data for the specified image in PNG format.
+- [ ] Returns the data for the encoded image in base64 format.
+- [ ] Value of compression quality
+- [ ] Save to the photo gallery
 
 ### Mostly automatic installation
 
@@ -30,9 +27,12 @@
 3. In XCode, in the project navigator, select your project. Add `libRNHeicConverter.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
+## Static Methods
+
+### `RNHeicConverter.getJpgPath: (options{}, (error{}, result{}) => callback)`
 
 ## Usage
-```javascript
+```jsx
 import RNHeicConverter from 'react-native-heic-converter';
 
 RNHeicConverter.getJpgPath({
