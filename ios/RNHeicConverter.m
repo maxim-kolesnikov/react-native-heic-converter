@@ -28,15 +28,17 @@ RCT_EXPORT_METHOD(getJpgPath:(NSDictionary *)options callback:(RCTResponseSender
         NSString *heicImageFilePath = uri;
         NSString *ext = [heicImageFilePath pathExtension];
         if ([ext caseInsensitiveCompare:@"heic"] == NSOrderedSame) {
-            // create new jpeg file from input heic filepath
-            NSString* fname = [uri stringByDeletingPathExtension];
-            NSString* newJpgPath = [fname stringByAppendingPathExtension:@"jpg"];;
+            NSString *encodeURI = [uri stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
-            NSURL *url = [NSURL fileURLWithPath:uri];
+            // create new jpeg file from input heic filepath
+            NSString* fname = [encodeURI stringByDeletingPathExtension];
+            NSString* newJpgPath = [fname stringByAppendingPathExtension:@"jpg"];;
+
+            NSURL *url = [NSURL fileURLWithPath:encodeURI];
             NSData *data = [NSData dataWithContentsOfURL:url];
             UIImage *image = [UIImage imageWithData:data];
             NSData *jpgImageData = UIImageJPEGRepresentation(image, 0.7);
-            
+
             [jpgImageData writeToFile:newJpgPath atomically:YES];
             NSDictionary *result = @{ @"success": @YES, @"path": newJpgPath};
             return result;
