@@ -4594,7 +4594,7 @@ react-is@^16.3.1:
 
 "react-native-heic-converter@github:makskolesnikov/react-native-heic-converter":
   version "1.0.2"
-  resolved "https://codeload.github.com/makskolesnikov/react-native-heic-converter/tar.gz/a6129de0f212a1b81bf4c513319897909ffeea57"
+  resolved "https://codeload.github.com/makskolesnikov/react-native-heic-converter/tar.gz/981a172ac5f7a41ce2cf02ccb1e0985b61d7fb14"
 
 react-native-image-picker@^0.26.10:
   version "0.26.10"
