@@ -1,5 +1,5 @@
 
-# react-native-heic-converter
+# react-native-heic-converter [![npm version](https://badge.fury.io/js/react-native-heic-converter.svg)](https://badge.fury.io/js/react-native-heic-converter) [![npm](https://img.shields.io/npm/dt/react-native-heic-converter.svg)](https://npmcharts.com/compare/react-native-heic-converter?minimal=true) ![MIT](https://img.shields.io/dub/l/vibe-d.svg) ![Platform - iOS](https://img.shields.io/badge/platform-iOS-yellow.svg)
 
 ## Getting started
 
