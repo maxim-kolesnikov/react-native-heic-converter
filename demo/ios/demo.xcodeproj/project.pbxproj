@@ -25,6 +25,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		CEB9D53720AFFE8100286C35 /* libRNHeicConverter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB9D53020AFFE3700286C35 /* libRNHeicConverter.a */; };
 		CEB9D53820AFFE8600286C35 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB9D53620AFFE5E00286C35 /* libRNImagePicker.a */; };
+		CEB9D53F20B006CB00286C35 /* libRNDocumentPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB9D53E20B006B100286C35 /* libRNDocumentPicker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,6 +302,13 @@
 			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
 			remoteInfo = RNImagePicker;
 		};
+		CEB9D53D20B006B100286C35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEB9D53920B006B100286C35 /* RNDocumentPicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E01DD9DB1D2311A600C39062;
+			remoteInfo = RNDocumentPicker;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -329,6 +337,7 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		CEB9D50620AFFE3700286C35 /* RNHeicConverter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNHeicConverter.xcodeproj; path = "../node_modules/react-native-heic-converter/ios/RNHeicConverter.xcodeproj"; sourceTree = "<group>"; };
 		CEB9D53120AFFE5E00286C35 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
+		CEB9D53920B006B100286C35 /* RNDocumentPicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNDocumentPicker.xcodeproj; path = "../node_modules/react-native-document-picker/ios/RNDocumentPicker.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +345,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB9D53F20B006CB00286C35 /* libRNDocumentPicker.a in Frameworks */,
 				CEB9D53820AFFE8600286C35 /* libRNImagePicker.a in Frameworks */,
 				CEB9D53720AFFE8100286C35 /* libRNHeicConverter.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -502,6 +512,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CEB9D53920B006B100286C35 /* RNDocumentPicker.xcodeproj */,
 				CEB9D53120AFFE5E00286C35 /* RNImagePicker.xcodeproj */,
 				CEB9D50620AFFE3700286C35 /* RNHeicConverter.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -572,6 +583,14 @@
 			isa = PBXGroup;
 			children = (
 				CEB9D53620AFFE5E00286C35 /* libRNImagePicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEB9D53A20B006B100286C35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9D53E20B006B100286C35 /* libRNDocumentPicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -665,6 +684,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = CEB9D53A20B006B100286C35 /* Products */;
+					ProjectRef = CEB9D53920B006B100286C35 /* RNDocumentPicker.xcodeproj */;
 				},
 				{
 					ProductGroup = CEB9D50720AFFE3700286C35 /* Products */;
@@ -954,6 +977,13 @@
 			fileType = archive.ar;
 			path = libRNImagePicker.a;
 			remoteRef = CEB9D53520AFFE5E00286C35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CEB9D53E20B006B100286C35 /* libRNDocumentPicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNDocumentPicker.a;
+			remoteRef = CEB9D53D20B006B100286C35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
