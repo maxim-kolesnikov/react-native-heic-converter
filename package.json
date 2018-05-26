@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/makskolesnikov/react-native-heic-converter"
+    "url": "git+https://github.com/maxim-kolesnikov/react-native-heic-converter"
   },
   "files": [
     "ios/RNHeicConverter.xcodeproj",
@@ -33,7 +33,7 @@
   ],
   "author": "Maxim Kolesnikov <mxklsn@gmail.com>",
   "bugs": {
-    "url": "https://github.com/makskolesnikov/react-native-heic-converter/issues"
+    "url": "https://github.com/maxim-kolesnikov/react-native-heic-converter/issues"
   },
-  "homepage": "https://github.com/makskolesnikov/react-native-heic-converter#readme"
+  "homepage": "https://github.com/maxim-kolesnikov/react-native-heic-converter#readme"
 }

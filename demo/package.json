@@ -10,7 +10,7 @@
     "react": "16.3.1",
     "react-native": "0.55.4",
     "react-native-document-picker": "git+https://github.com/Elyx0/react-native-document-picker.git#e4c03667a87ffba54832563b11e00c6e5dd183e0",
-    "react-native-heic-converter": "github:makskolesnikov/react-native-heic-converter",
+    "react-native-heic-converter": "github:maxim-kolesnikov/react-native-heic-converter",
     "react-native-image-picker": "^0.26.10"
   },
   "devDependencies": {
