@@ -42,11 +42,11 @@ export default class App extends Component<Props> {
 
   /**
    * RNHeicConverter callback
-   * Using https://github.com/makskolesnikov/react-native-heic-converter
+   * Using https://github.com/maxim-kolesnikov/react-native-heic-converter
    */
-  heicConverterCallback = (e, r) => {
-    if (!e && r.success && r.path) {
-      this.showImage(r.path);
+  heicConverterCallback = ({ success, path, error }) => {
+    if (!error && success && path) {
+      this.showImage(path);
     } else {
       console.log('RNHeicConverter error: ', e);
     }
@@ -64,7 +64,13 @@ export default class App extends Component<Props> {
         ? document.uri.replace('file://', '')
         : document.uri;
 
-      RNHeicConverter.getJpgPath({ uri: pathToLocal }, this.heicConverterCallback);
+      // react-native-heic-converter@1.0.2
+      // RNHeicConverter.getJpgPath({ uri: pathToLocal }, this.heicConverterCallback);
+
+      // react-native-heic-converter@1.1.0
+      RNHeicConverter
+        .convert({ path: pathToLocal, quality: 0.7, extension: 'jpg' })
+        .then(this.heicConverterCallback);
     } catch (err) {
       console.log('RNDocumentPicker error', err);
     }
