@@ -1,0 +1,19 @@
+# 1.1.0
+
+- Add demo
+- Add MIT License
+- Fixes in README
+- Start using promise instead of callback
+
+# 1.0.2
+
+- Support encodeURI for uri path
+
+# 1.0.1
+
+- Update README for release
+
+# 1.0.0-beta.1
+
+- Init ios project
+- Add implementation
