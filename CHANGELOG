@@ -4,6 +4,7 @@
 - Add MIT License
 - Fixes in README
 - Start using promise instead of callback
+- Support: returns the data for the specified image in PNG format.
 
 # 1.0.2
 
