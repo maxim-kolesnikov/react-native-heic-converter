@@ -69,7 +69,7 @@ export default class App extends Component<Props> {
 
       // react-native-heic-converter@1.1.0
       RNHeicConverter
-        .convert({ path: pathToLocal, quality: 0.7, extension: 'jpg' })
+        .convert({ path: pathToLocal, quality: 0.7, extension: 'png' })
         .then(this.heicConverterCallback);
     } catch (err) {
       console.log('RNDocumentPicker error', err);
