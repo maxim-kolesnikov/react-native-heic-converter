@@ -22,13 +22,13 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
 {
     NSString *uri = options[@"path"];
     double quality = [options[@"quality"] floatValue];
-//    NSString *extension = options[@"extension"];
+    NSString *extension = options[@"extension"];
 
     if ([self isUriEmpty: uri]) {
         if ([self isHeicFile: uri]) {
             NSString* encodeURI = [self encodeURI: uri];
-            NSString* path = [self getNewImagePath: encodeURI];
-            NSData* data = [self getImageData: encodeURI quality: quality];
+            NSString* path = [self getNewImagePath: encodeURI extension: extension];
+            NSData* data = [self getImageData: encodeURI quality: quality extension: extension];
             
             BOOL success = [data writeToFile: path atomically: YES];
             if (!success) {
@@ -57,19 +57,32 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
     return [ext caseInsensitiveCompare:@"heic"] == NSOrderedSame;
 }
 
+-(BOOL) isPNGExtention: (NSString*) extension
+{
+    return [extension caseInsensitiveCompare:@"png"] == NSOrderedSame;
+}
+
 -(NSString*) getNewImagePath: (NSString*) encodeURI
+                            extension: (NSString*) extension
 {
     NSString* fname = [encodeURI stringByDeletingPathExtension];
-    return [fname stringByAppendingPathExtension:@"jpg"];
+    return [fname stringByAppendingPathExtension: [self isPNGExtention: extension] ? @"png" : @"jpg"];
 }
 
 -(NSData*) getImageData: (NSString*) encodeURI
                         quality: (float) quality
+                        extension: (NSString*) extension
 {
     NSURL *url = [NSURL fileURLWithPath: encodeURI];
     NSData *data = [NSData dataWithContentsOfURL: url];
     UIImage *image = [UIImage imageWithData: data];
-    return UIImageJPEGRepresentation(image, quality);
+    NSData* result;
+    if ([self isPNGExtention: extension]) {
+        result = UIImagePNGRepresentation(image);
+    } else {
+        result = UIImageJPEGRepresentation(image, quality);
+    }
+    return result;
 }
 
 @end
