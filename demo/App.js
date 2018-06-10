@@ -44,11 +44,16 @@ export default class App extends Component<Props> {
    * RNHeicConverter callback
    * Using https://github.com/maxim-kolesnikov/react-native-heic-converter
    */
-  heicConverterCallback = ({ success, path, error }) => {
-    if (!error && success && path) {
-      this.showImage(path);
+  heicConverterCallback = ({
+    success, path, error, base64,
+  }) => {
+    console.log({
+      success, path, error, base64,
+    });
+    if (!error && success && (path || base64)) {
+      this.showImage(path || base64);
     } else {
-      console.log('RNHeicConverter error: ', e);
+      console.log('RNHeicConverter error: ', error);
     }
   };
 
@@ -60,16 +65,18 @@ export default class App extends Component<Props> {
     try {
       const document = await RNDocumentPicker
         .pick({ type: [RNDocumentPicker.types.allFiles] });
-      const pathToLocal = document.uri.startsWith('file://')
-        ? document.uri.replace('file://', '')
-        : document.uri;
 
-      // react-native-heic-converter@1.0.2
-      // RNHeicConverter.getJpgPath({ uri: pathToLocal }, this.heicConverterCallback);
+      /** react-native-heic-converter@1.0.2 */
+      // RNHeicConverter.getJpgPath({
+      //   uri: document.uri.replace('file://', '')
+      // }, this.heicConverterCallback);
 
-      // react-native-heic-converter@1.1.0
+      /** react-native-heic-converter@1.1.0 */
       RNHeicConverter
-        .convert({ path: pathToLocal, quality: 0.7, extension: 'png' })
+        .convert({ path: document.uri }) // default with quality = 1 & jpg extension
+        // .convert({ path: document.uri, quality: 0.7 }) // with 0.7 quality & jpg extension
+        // .convert({ path: document.uri, extension: 'png' }) // png extension
+        // .convert({ path: document.uri, quality: 0.7, extension: 'base64' }) // base64 extension
         .then(this.heicConverterCallback);
     } catch (err) {
       console.log('RNDocumentPicker error', err);

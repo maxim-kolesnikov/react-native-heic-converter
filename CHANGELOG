@@ -5,6 +5,8 @@
 - Fixes in README
 - Start using promise instead of callback
 - Support: returns the data for the specified image in PNG format.
+- Support: returns the data for the specified image in base64 format.
+
 
 # 1.0.2
 
