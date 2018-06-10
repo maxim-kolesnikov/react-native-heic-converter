@@ -41,7 +41,7 @@
 
 | Property  | Type | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| `path`  | `string`  | '' | Path to your `.HEIC` file  |
+| `path`  | `string`  |  | Path to your `.HEIC` file  |
 | `quality`  | `number`  | `1`  | Set quality `0` to `1`, for `jpg` extension only  |
 | `extension`  | `string`  | `jpg`  | File extension that you want get when convert: `jpg` or `png` or `base64` |
 
