@@ -51,7 +51,7 @@ import RNHeicConverter from 'react-native-heic-converter';
 
 RNHeicConverter
     .convert({ // options
-        path: /path/to/file.heic,
+        path: '/path/to/file.heic',
     })
     .then((result) => {
         console.log(result); // { success: true, path: "path/to/jpg", error, base64, }
