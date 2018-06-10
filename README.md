@@ -3,7 +3,7 @@
 
 ## Contribution
 
-**Issues** are welcome. Please add a code snippet. Quickest way to solve issue is to reproduce it on one of the examples in ![DEMO](https://github.com/maxim-kolesnikov/react-native-heic-converter/tree/master/demo).
+**Issues** are welcome. Please add a code snippet. Quickest way to solve issue is to reproduce it on one of the examples in [DEMO](https://github.com/maxim-kolesnikov/react-native-heic-converter/tree/master/demo).
 
 **Pull requests** are welcome. If you want to change API or making something big better to create issue and discuss it first. Before submiting PR please run ```eslint .``` Also all eslint fixes are welcome.
 
