@@ -9,6 +9,8 @@ static NSString *const EMPTY_PATH = @"Your path is empty";
 static NSString *const WRITE_FAILED = @"Can't write to file";
 static NSString *const EXTENSION_FAILED = @"Extension of your path is not HEIC";
 
+#define AS(A,B)    [(A) stringByAppendingString:(B)]
+
 RCT_EXPORT_MODULE()
 
 - (dispatch_queue_t)methodQueue
@@ -23,13 +25,32 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
     NSString *uri = options[@"path"];
     double quality = [options[@"quality"] floatValue];
     NSString *extension = options[@"extension"];
-
-    if ([self isUriEmpty: uri]) {
-        if ([self isHeicFile: uri]) {
+    NSNumber* type = options[@"extensionType"];
+    int extensionType = [type intValue];
+    
+    if ([self isEmpty: uri]) {
+        if ([self isHeic: uri]) {
             NSString* encodeURI = [self encodeURI: uri];
-            NSString* path = [self getNewImagePath: encodeURI extension: extension];
-            NSData* data = [self getImageData: encodeURI quality: quality extension: extension];
+            UIImage* image = [self getImage: encodeURI];
+            NSData* data;
             
+            switch (extensionType)
+            {
+                case 1:
+                    data = UIImagePNGRepresentation(image);
+                    break;
+                case 2:
+                    return resolve(@{
+                         @"success": @YES,
+                         @"base64": AS(@"data:image/png;base64,", [self encodeToBase64String: image])
+                     });
+                    break;
+                default:
+                    data = UIImageJPEGRepresentation(image, quality);
+                    break;
+            }
+
+            NSString* path = [self getPath: encodeURI extension: extension];
             BOOL success = [data writeToFile: path atomically: YES];
             if (!success) {
                 return resolve(@{@"success": @NO, @"error": WRITE_FAILED});
@@ -41,48 +62,40 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
     return resolve(@{ @"success": @NO, @"error": EMPTY_PATH});
 }
 
+-(NSString *) encodeToBase64String:(UIImage *)image {
+    return [UIImagePNGRepresentation(image) base64EncodedStringWithOptions: NSDataBase64Encoding64CharacterLineLength];
+}
+
 -(NSString*) encodeURI: (NSString*) uri
 {
     return [uri stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
 }
 
--(BOOL) isUriEmpty: (NSString*) uri
+-(BOOL) isEmpty: (NSString*) uri
 {
     return [allTrim(uri) length] != 0;
 }
 
--(BOOL) isHeicFile: (NSString*) uri
+-(BOOL) isHeic: (NSString*) uri
 {
     NSString *ext = [uri pathExtension];
     return [ext caseInsensitiveCompare:@"heic"] == NSOrderedSame;
 }
 
--(BOOL) isPNGExtention: (NSString*) extension
-{
-    return [extension caseInsensitiveCompare:@"png"] == NSOrderedSame;
-}
-
--(NSString*) getNewImagePath: (NSString*) encodeURI
+-(NSString*) getPath: (NSString*) encodeURI
                             extension: (NSString*) extension
 {
     NSString* fname = [encodeURI stringByDeletingPathExtension];
-    return [fname stringByAppendingPathExtension: [self isPNGExtention: extension] ? @"png" : @"jpg"];
+    return [fname stringByAppendingPathExtension: extension];
 }
 
--(NSData*) getImageData: (NSString*) encodeURI
-                        quality: (float) quality
-                        extension: (NSString*) extension
+-(UIImage*) getImage: (NSString*) encodeURI
 {
     NSURL *url = [NSURL fileURLWithPath: encodeURI];
     NSData *data = [NSData dataWithContentsOfURL: url];
     UIImage *image = [UIImage imageWithData: data];
-    NSData* result;
-    if ([self isPNGExtention: extension]) {
-        result = UIImagePNGRepresentation(image);
-    } else {
-        result = UIImageJPEGRepresentation(image, quality);
-    }
-    return result;
+
+    return image;
 }
 
 @end
