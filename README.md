@@ -58,4 +58,6 @@ RNHeicConverter
     });
 ```
   
-**Please have a look at my [example usage](https://github.com/maxim-kolesnikov/react-native-heic-converter/tree/master/demo).**
+**Please have a look at my [example usage](https://github.com/maxim-kolesnikov/react-native-heic-converter/blob/master/demo/App.js).**
+
+**[CHANGELOG](https://github.com/maxim-kolesnikov/react-native-heic-converter/blob/master/CHANGELOG).**
