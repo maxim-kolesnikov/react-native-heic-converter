@@ -17,6 +17,7 @@
 - [x] Returns the data for the specified image in PNG format.
 - [x] Returns the data for the encoded image in base64 format.
 - [x] Value of compression quality
+- [x] Support representation of an image in the Photos library.
 - [ ] Save to the photo gallery
 
 ## Mostly automatic installation
