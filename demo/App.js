@@ -12,6 +12,7 @@ import {
   Button,
   Dimensions,
   StyleSheet,
+  CameraRoll,
   ActionSheetIOS,
 } from 'react-native';
 import RNImagePicker from 'react-native-image-picker';
@@ -84,6 +85,31 @@ export default class App extends Component<Props> {
   }
 
   /**
+   * Pick image from the assets library or camera by React Native CameraRoll
+   * Using https://facebook.github.io/react-native/docs/cameraroll.html#getphotos
+   */
+  cameraRollCallback = () => {
+    CameraRoll.getPhotos({
+      first: 20,
+      assetType: 'Photos',
+    })
+      .then(({ page_info: pageInfo }) => {
+        const { start_cursor: startCursor } = pageInfo;
+
+        RNHeicConverter
+          .convert({ path: startCursor }) // default with quality = 1 & jpg extension
+          // .convert({ path: startCursor, quality: 0.7 }) // with 0.7 quality & jpg extension
+          // .convert({ path: startCursor, extension: 'png' }) // png extension
+          // .convert({ path: startCursor, extension: 'base64' }) // base64 extension
+          .then(this.heicConverterCallback);
+      })
+      .catch((error) => {
+        // Error Loading Images
+        console.log(error);
+      });
+  }
+
+  /**
    * Pick image from the device library or directly from the camera by RNImagePicker
    * Using https://github.com/react-community/react-native-image-picker
    */
@@ -100,8 +126,8 @@ export default class App extends Component<Props> {
 
   toggleAttachFile = () => {
     ActionSheetIOS.showActionSheetWithOptions({
-      options: ['Upload document', 'Take photo', 'Choose photo from library', 'Cancel'],
-      cancelButtonIndex: 3
+      options: ['Upload document', 'Take photo', 'Choose photo from library', 'Camera roll', 'Cancel'],
+      cancelButtonIndex: 4
     }, (index) => {
       switch (index) {
         case 0: this.pickDocument(); break;
@@ -114,6 +140,8 @@ export default class App extends Component<Props> {
           pickerOptions,
           response => this.pickerCallback(response, 'gallery')
         );
+          break;
+        case 3: this.cameraRollCallback();
           break;
         default: break;
       }

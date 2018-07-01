@@ -26,6 +26,7 @@
 		CEB9D53720AFFE8100286C35 /* libRNHeicConverter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB9D53020AFFE3700286C35 /* libRNHeicConverter.a */; };
 		CEB9D53820AFFE8600286C35 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB9D53620AFFE5E00286C35 /* libRNImagePicker.a */; };
 		CEB9D53F20B006CB00286C35 /* libRNDocumentPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB9D53E20B006B100286C35 /* libRNDocumentPicker.a */; };
+		CEEB9B0320DFBA6F00A33DBB /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEB9ADF20DFBA6400A33DBB /* libRCTCameraRoll.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +310,13 @@
 			remoteGlobalIDString = E01DD9DB1D2311A600C39062;
 			remoteInfo = RNDocumentPicker;
 		};
+		CEEB9ADE20DFBA6400A33DBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEEB9AD520DFBA6400A33DBB /* RCTCameraRoll.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
+			remoteInfo = RCTCameraRoll;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -336,6 +344,7 @@
 		CEB9D50620AFFE3700286C35 /* RNHeicConverter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNHeicConverter.xcodeproj; path = "../node_modules/react-native-heic-converter/ios/RNHeicConverter.xcodeproj"; sourceTree = "<group>"; };
 		CEB9D53120AFFE5E00286C35 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		CEB9D53920B006B100286C35 /* RNDocumentPicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNDocumentPicker.xcodeproj; path = "../node_modules/react-native-document-picker/ios/RNDocumentPicker.xcodeproj"; sourceTree = "<group>"; };
+		CEEB9AD520DFBA6400A33DBB /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +352,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEB9B0320DFBA6F00A33DBB /* libRCTCameraRoll.a in Frameworks */,
 				CEB9D53F20B006CB00286C35 /* libRNDocumentPicker.a in Frameworks */,
 				CEB9D53820AFFE8600286C35 /* libRNImagePicker.a in Frameworks */,
 				CEB9D53720AFFE8100286C35 /* libRNHeicConverter.a in Frameworks */,
@@ -493,6 +503,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CEEB9AD520DFBA6400A33DBB /* RCTCameraRoll.xcodeproj */,
 				CEB9D53920B006B100286C35 /* RNDocumentPicker.xcodeproj */,
 				CEB9D53120AFFE5E00286C35 /* RNImagePicker.xcodeproj */,
 				CEB9D50620AFFE3700286C35 /* RNHeicConverter.xcodeproj */,
@@ -575,6 +586,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CEEB9AD620DFBA6400A33DBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEEB9ADF20DFBA6400A33DBB /* libRCTCameraRoll.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -628,6 +647,10 @@
 				{
 					ProductGroup = ADBDB9201DFEBF0600ED6528 /* Products */;
 					ProjectRef = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
+				},
+				{
+					ProductGroup = CEEB9AD620DFBA6400A33DBB /* Products */;
+					ProjectRef = CEEB9AD520DFBA6400A33DBB /* RCTCameraRoll.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -966,6 +989,13 @@
 			remoteRef = CEB9D53D20B006B100286C35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		CEEB9ADF20DFBA6400A33DBB /* libRCTCameraRoll.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCameraRoll.a;
+			remoteRef = CEEB9ADE20DFBA6400A33DBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1028,6 +1058,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1045,6 +1076,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
