@@ -10,6 +10,8 @@ class HEICConverter {
     const options = {
       path: path.startsWith('file://') ? path.replace('file://', '') : path,
       extension: params.extension,
+      isAssetsHEIC: path && path.toLowerCase().startsWith('assets-library://asset/')
+        && path.toLowerCase().endsWith('heic'),
     };
 
     switch (extension) {

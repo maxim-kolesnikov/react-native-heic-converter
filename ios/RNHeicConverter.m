@@ -28,12 +28,26 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
     NSNumber* type = options[@"extensionType"];
     int extensionType = [type intValue];
     
+    // TODO: rework JS-hack
+    NSNumber* isAssetsHEIC = options[@"isAssetsHEIC"];
+    BOOL haveAsset = [isAssetsHEIC boolValue];
+    
+    NSData* data;
+    NSString* path;
+    UIImage* image;
+    
+    if(haveAsset) {
+        image = [self getAssetThumbnail: uri];
+        path = [self getDocumentsPath: extension];
+    }
+
     if ([self isEmpty: uri]) {
-        if ([self isHeic: uri]) {
-            NSString* encodeURI = [self encodeURI: uri];
-            UIImage* image = [self getImage: encodeURI];
-            NSData* data;
-            
+        if(haveAsset || [self isHeic: uri]) {
+            if (!haveAsset) {
+                NSString* encodeURI = [self encodeURI: uri];
+                path = [self getPath: encodeURI extension: extension];
+                image = [self getImage: encodeURI];
+            }
             switch (extensionType)
             {
                 case 1:
@@ -50,7 +64,6 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
                     break;
             }
 
-            NSString* path = [self getPath: encodeURI extension: extension];
             BOOL success = [data writeToFile: path atomically: YES];
             if (!success) {
                 return resolve(@{@"success": @NO, @"error": WRITE_FAILED});
@@ -95,6 +108,45 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
     NSData *data = [NSData dataWithContentsOfURL: url];
     UIImage *image = [UIImage imageWithData: data];
 
+    return image;
+}
+
+- (NSString *)valueForKey:(NSString *)key fromQueryItems:(NSArray *)queryItems
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name=%@", key];
+    NSURLQueryItem *queryItem = [[queryItems
+                                  filteredArrayUsingPredicate:predicate]
+                                 firstObject];
+    return queryItem.value;
+}
+
+- (NSString *)getDocumentsPath:(NSString*) extension
+{
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString * timestamp = [NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970] * 1000];
+    NSString *fName = [NSString stringWithFormat:@"%@.%@", timestamp, extension];
+
+    NSString* path = [documentsDirectory stringByAppendingPathComponent: fName];
+    return path;
+}
+
+-(UIImage *)getAssetThumbnail:(NSString* )uri {
+    NSURLComponents *components = [NSURLComponents componentsWithString:uri];
+    NSArray *queryItems = components.queryItems;
+    NSString *assetId = [self valueForKey:@"id" fromQueryItems:queryItems];
+    
+    PHFetchResult* assetList = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetId] options:NULL];
+    PHAsset *imageAsset = [assetList firstObject];
+    
+    PHImageRequestOptions *options = [[PHImageRequestOptions alloc]init];
+    options.synchronous = true;
+    
+    __block UIImage *image;
+    [PHCachingImageManager.defaultManager requestImageForAsset:imageAsset targetSize:CGSizeMake(10000, 10000) contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        image = result;
+    }];
     return image;
 }
 
