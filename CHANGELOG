@@ -1,3 +1,7 @@
+# 1.2.0
+
+- Replaced the directory for saving images from /tmp to /Documents.
+
 # 1.1.1
 
 - Support representation of an image in the Photos library.
