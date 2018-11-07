@@ -98,8 +98,11 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
 -(NSString*) getPath: (NSString*) encodeURI
                             extension: (NSString*) extension
 {
-    NSString* fname = [encodeURI stringByDeletingPathExtension];
-    return [fname stringByAppendingPathExtension: extension];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [[encodeURI lastPathComponent] stringByDeletingPathExtension];
+
+    return [NSString stringWithFormat:@"%@/%@.%@", documentsDirectory, fileName, extension];
 }
 
 -(UIImage*) getImage: (NSString*) encodeURI
