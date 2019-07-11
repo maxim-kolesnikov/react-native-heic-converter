@@ -1,3 +1,7 @@
+# 1.2.1
+
+- Add 'homepage' for RNHeicConverter.podspec
+
 # 1.2.0
 
 - Replaced the directory for saving images from /tmp to /Documents.
