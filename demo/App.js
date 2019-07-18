@@ -94,10 +94,19 @@ export default class App extends Component<Props> {
       assetType: 'Photos',
     })
       .then(({ page_info: pageInfo }) => {
-        const { start_cursor: startCursor } = pageInfo;
+        const { edges } = pageInfo;
+
+        if (edges.length === 0) {
+          return;
+        }
+
+        const asset = edges[0].node;
 
         RNHeicConverter
-          .convert({ path: startCursor }) // default with quality = 1 & jpg extension
+          .convert({
+            path: asset.uri,
+            filename: asset.filename,
+          }) // default with quality = 1 & jpg extension
           // .convert({ path: startCursor, quality: 0.7 }) // with 0.7 quality & jpg extension
           // .convert({ path: startCursor, extension: 'png' }) // png extension
           // .convert({ path: startCursor, extension: 'base64' }) // base64 extension
