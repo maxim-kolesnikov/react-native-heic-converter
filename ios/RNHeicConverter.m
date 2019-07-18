@@ -37,7 +37,7 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
     UIImage* image;
     
     if(haveAsset) {
-        image = [self getAssetThumbnail: uri];
+        image = [self getAssetThumbnail:uri ph:isPH];
         path = [self getDocumentsPath: extension];
     }
 
@@ -135,11 +135,11 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
     return path;
 }
 
--(UIImage *)getAssetThumbnail:(NSString* )uri {
-    NSURLComponents *components = [NSURLComponents componentsWithString:uri];
+-(UIImage *)getAssetThumbnail:(NSString* )uri ph:(BOOL)isPH {
     NSString *assetId = uri;
     
-    if (components != NULL) {
+    if (!isPH) {
+        NSURLComponents *components = [NSURLComponents componentsWithString:uri];
         NSArray *queryItems = components.queryItems;
         assetId = [self valueForKey:@"id" fromQueryItems:queryItems];
     }

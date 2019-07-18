@@ -19,7 +19,7 @@ class HEICConverter {
       extension,
       isAssetsHEIC: path && path.toLowerCase().startsWith('assets-library://asset/')
         && path.toLowerCase().endsWith('heic'),
-      isPH: param.path && param.path.toLowerCase().startsWith('ph://')
+      isPH: params.path && params.path.toLowerCase().startsWith('ph://')
       	&& filename && filename.toLowerCase().endsWith('heic'),
     };
 
