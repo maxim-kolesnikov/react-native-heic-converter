@@ -8,19 +8,20 @@ class HEICConverter {
   static convert(params) {
     const { extension, quality, path, filename } = params;
 
+    let trimmedPath = path;
     if (path.startsWith('file://')) {
-      path = path.replace('file://', '');
+      trimmedPath = path.replace('file://', '');
     } else if (path.startsWith('ph://')) {
-      path = path.replace('ph://', '');
+      trimmedPath = path.replace('ph://', '');
     }
 
     const options = {
-      path,
+      path: trimmedPath,
       extension,
       isAssetsHEIC: path && path.toLowerCase().startsWith('assets-library://asset/')
         && path.toLowerCase().endsWith('heic'),
-      isPH: params.path && params.path.toLowerCase().startsWith('ph://')
-      	&& filename && filename.toLowerCase().endsWith('heic'),
+      isPH: path && path.toLowerCase().startsWith('ph://')
+        && filename && filename.toLowerCase().endsWith('heic'),
     };
 
     switch (extension) {
@@ -41,6 +42,7 @@ class HEICConverter {
       options.quality = 1;
     }
 
+    console.log(options);
     return RNHeicConverter
       .convert(options)
       .then(result => (result));
