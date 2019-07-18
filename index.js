@@ -7,9 +7,10 @@ const isNumber = n => !isNaN(parseFloat(n));
 class HEICConverter {
   static convert(params) {
     const { extension, quality, path, filename } = params;
+
     if (path.startsWith('file://')) {
       path = path.replace('file://', '');
-    } elseif (path.startsWith('ph://')) {
+    } else if (path.startsWith('ph://')) {
       path = path.replace('ph://', '');
     }
 
