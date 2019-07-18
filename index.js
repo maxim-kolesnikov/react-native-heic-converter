@@ -42,7 +42,6 @@ class HEICConverter {
       options.quality = 1;
     }
 
-    console.log(options);
     return RNHeicConverter
       .convert(options)
       .then(result => (result));
