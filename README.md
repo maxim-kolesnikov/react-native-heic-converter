@@ -51,6 +51,7 @@
 | `path`  | `string`  |  | Path to your `.HEIC` file  |
 | `quality`  | `number`  | `1`  | Set quality `0` to `1`, for `jpg` extension only  |
 | `extension`  | `string`  | `jpg`  | File extension that you want get when convert: `jpg` or `png` or `base64` |
+| `fileName`  | `string`  |  | Filename to determinate the true HEIC extension. Mainly used for the Camera Roll response which returns `ph://XXXXXX/XX/XXX` format. |
 
 ## Usage
 ```jsx
@@ -59,6 +60,7 @@ import RNHeicConverter from 'react-native-heic-converter';
 RNHeicConverter
     .convert({ // options
         path: '/path/to/file.heic',
+        fileName: 'IMG_0001.HEIC',
     })
     .then((result) => {
         console.log(result); // { success: true, path: "path/to/jpg", error, base64, }
