@@ -1,4 +1,3 @@
-
 #import "RNHeicConverter.h"
 
 #define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
@@ -30,14 +29,15 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
     
     // TODO: rework JS-hack
     NSNumber* isAssetsHEIC = options[@"isAssetsHEIC"];
-    BOOL haveAsset = [isAssetsHEIC boolValue];
+    NSNumber* isPH = options[@"isPH"];
+    BOOL haveAsset = [isAssetsHEIC boolValue] || [isPH boolValue];
     
     NSData* data;
     NSString* path;
     UIImage* image;
     
     if(haveAsset) {
-        image = [self getAssetThumbnail: uri];
+        image = [self getAssetThumbnail:uri ph:isPH];
         path = [self getDocumentsPath: extension];
     }
 
@@ -135,10 +135,14 @@ RCT_EXPORT_METHOD(convert: (NSDictionary*) options
     return path;
 }
 
--(UIImage *)getAssetThumbnail:(NSString* )uri {
-    NSURLComponents *components = [NSURLComponents componentsWithString:uri];
-    NSArray *queryItems = components.queryItems;
-    NSString *assetId = [self valueForKey:@"id" fromQueryItems:queryItems];
+-(UIImage *)getAssetThumbnail:(NSString* )uri ph:(BOOL)isPH {
+    NSString *assetId = uri;
+    
+    if (!isPH) {
+        NSURLComponents *components = [NSURLComponents componentsWithString:uri];
+        NSArray *queryItems = components.queryItems;
+        assetId = [self valueForKey:@"id" fromQueryItems:queryItems];
+    }
     
     PHFetchResult* assetList = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetId] options:NULL];
     PHAsset *imageAsset = [assetList firstObject];

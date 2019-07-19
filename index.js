@@ -6,12 +6,22 @@ const isNumber = n => !isNaN(parseFloat(n));
 
 class HEICConverter {
   static convert(params) {
-    const { extension, quality, path } = params;
+    const { extension, quality, path, filename } = params;
+
+    let trimmedPath = path;
+    if (path.startsWith('file://')) {
+      trimmedPath = path.replace('file://', '');
+    } else if (path.startsWith('ph://')) {
+      trimmedPath = path.replace('ph://', '');
+    }
+
     const options = {
-      path: path.startsWith('file://') ? path.replace('file://', '') : path,
-      extension: params.extension,
+      path: trimmedPath,
+      extension,
       isAssetsHEIC: path && path.toLowerCase().startsWith('assets-library://asset/')
         && path.toLowerCase().endsWith('heic'),
+      isPH: path && path.toLowerCase().startsWith('ph://')
+        && filename && filename.toLowerCase().endsWith('heic'),
     };
 
     switch (extension) {
