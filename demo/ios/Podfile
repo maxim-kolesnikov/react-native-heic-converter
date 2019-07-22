@@ -28,20 +28,6 @@ target 'demo' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'demoTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  use_native_modules!
-end
-
-target 'demo-tvOS' do
-  # Pods for demo-tvOS
-
-  target 'demo-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'react-native-heic-converter', :path => '../node_modules/react-native-heic-converter'
 
 end
