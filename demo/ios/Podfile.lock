@@ -67,6 +67,9 @@ PODS:
     - React-Core (= 0.60.4)
     - React-RCTNetwork (= 0.60.4)
     - React-RCTWebSocket (= 0.60.4)
+  - React-RCTCameraRoll (0.60.4):
+    - React-Core (= 0.60.4)
+    - React-RCTImage (= 0.60.4)
   - React-RCTImage (0.60.4):
     - React-Core (= 0.60.4)
     - React-RCTNetwork (= 0.60.4)
@@ -101,6 +104,7 @@ DEPENDENCIES:
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
+  - React-RCTCameraRoll (from `../node_modules/react-native/Libraries/CameraRoll`)
   - React-RCTImage (from `../node_modules/react-native/Libraries/Image`)
   - React-RCTLinking (from `../node_modules/react-native/Libraries/LinkingIOS`)
   - React-RCTNetwork (from `../node_modules/react-native/Libraries/Network`)
@@ -145,6 +149,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/NativeAnimation"
   React-RCTBlob:
     :path: "../node_modules/react-native/Libraries/Blob"
+  React-RCTCameraRoll:
+    :path: "../node_modules/react-native/Libraries/CameraRoll"
   React-RCTImage:
     :path: "../node_modules/react-native/Libraries/Image"
   React-RCTLinking:
@@ -179,6 +185,7 @@ SPEC CHECKSUMS:
   React-RCTActionSheet: 9f71d7ae3e8fb10e08d162cbf14c621349dbfab3
   React-RCTAnimation: 981d8c95b0e30918a9832ccac32af83562a27fae
   React-RCTBlob: 21e73d1020a302a75fed30dbaee9f15287b80baa
+  React-RCTCameraRoll: 06091c8da92d3417948bf984d094aaecd7a6bff4
   React-RCTImage: c0bc6ac0926517b6fb7e4c279b04843113e99d1d
   React-RCTLinking: 1af3f3c59114bed3deec0107c62e7efad0932ee5
   React-RCTNetwork: 35df9de46e19cda5c56380be1a7759b9b8cb2fcd
@@ -188,6 +195,6 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
-PODFILE CHECKSUM: f56758337fb1b56c9c4f65a483b673f9a1124a03
+PODFILE CHECKSUM: 3c20508ad7b23b3172045f4326535bd98289457a
 
 COCOAPODS: 1.7.4
