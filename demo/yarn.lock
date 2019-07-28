@@ -840,6 +840,11 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
+"@react-native-community/cameraroll@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/cameraroll/-/cameraroll-1.1.1.tgz#656b831c331b29c0f1f32137485310b38d2aa098"
+  integrity sha512-cvJewReV2l65exdsccveqnqXHGFuTgwdbjr+0MASxq6zQ+eeHLx9g/wYk8YrXHWXJqf5B/jZnNDpcg/y23atmw==
+
 "@react-native-community/cli-platform-android@^2.0.1", "@react-native-community/cli-platform-android@^2.7.0":
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-platform-android/-/cli-platform-android-2.7.0.tgz#511d1db12c52d29cb87b6e4e84d63030ffa2c38d"
@@ -5121,8 +5126,18 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
+react-native-document-picker@3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-document-picker/-/react-native-document-picker-3.2.2.tgz#d9774cb95d44f9b993600a048b0f18e7dd5ecea2"
+  integrity sha512-0vnWKfAWNxKlo7swZE0I66uF4zqp7uy6eUD/TjhD+xd1xkX9WNX5rbD/xMS46KOAcyZsp+OatxRWd7acPSL/Xg==
+
 react-native-heic-converter@../:
   version "1.2.1"
+
+react-native-image-picker@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-1.0.1.tgz#8d5f1865f26da603a72787936ed687c11d1bfdd0"
+  integrity sha512-cCxMTKZtUEaL4qXNBmPLG37rPBk3e4Uq4IHOt4Cm6gZQJilYZgFZtstQ8IhLOdLQgeQC7kT0liwzn8pSbO1nBA==
 
 react-native@0.60.4:
   version "0.60.4"

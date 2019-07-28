@@ -57,7 +57,13 @@ PODS:
     - React-cxxreact (= 0.60.4)
     - React-jsi (= 0.60.4)
   - React-jsinspector (0.60.4)
+  - react-native-cameraroll (1.1.1):
+    - React
+  - react-native-document-picker (3.2.2):
+    - React
   - react-native-heic-converter (1.2.1):
+    - React
+  - react-native-image-picker (1.0.1):
     - React
   - React-RCTActionSheet (0.60.4):
     - React-Core (= 0.60.4)
@@ -67,9 +73,6 @@ PODS:
     - React-Core (= 0.60.4)
     - React-RCTNetwork (= 0.60.4)
     - React-RCTWebSocket (= 0.60.4)
-  - React-RCTCameraRoll (0.60.4):
-    - React-Core (= 0.60.4)
-    - React-RCTImage (= 0.60.4)
   - React-RCTImage (0.60.4):
     - React-Core (= 0.60.4)
     - React-RCTNetwork (= 0.60.4)
@@ -100,11 +103,13 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
+  - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-heic-converter (from `../node_modules/react-native-heic-converter`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
-  - React-RCTCameraRoll (from `../node_modules/react-native/Libraries/CameraRoll`)
   - React-RCTImage (from `../node_modules/react-native/Libraries/Image`)
   - React-RCTLinking (from `../node_modules/react-native/Libraries/LinkingIOS`)
   - React-RCTNetwork (from `../node_modules/react-native/Libraries/Network`)
@@ -141,16 +146,20 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-cameraroll:
+    :path: "../node_modules/@react-native-community/cameraroll"
+  react-native-document-picker:
+    :path: "../node_modules/react-native-document-picker"
   react-native-heic-converter:
     :path: "../node_modules/react-native-heic-converter"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
     :path: "../node_modules/react-native/Libraries/NativeAnimation"
   React-RCTBlob:
     :path: "../node_modules/react-native/Libraries/Blob"
-  React-RCTCameraRoll:
-    :path: "../node_modules/react-native/Libraries/CameraRoll"
   React-RCTImage:
     :path: "../node_modules/react-native/Libraries/Image"
   React-RCTLinking:
@@ -181,11 +190,13 @@ SPEC CHECKSUMS:
   React-jsi: 21d3153b1153fbf6510a92b6b11e33e725cb7432
   React-jsiexecutor: 7549641e48bafae7bfee3f3ea19bf4901639c5de
   React-jsinspector: 73f24a02fa684ed6a2b828ba116874a2191ded88
+  react-native-cameraroll: 976d4c5c72f3d06f0725a6e2e956b183744ea00e
+  react-native-document-picker: 94a07ce0494c559e2ae9fa86621d6c624d810fec
   react-native-heic-converter: 7eaaa3a80b2c54be707bdcd2e8d7c7f3e6620d56
+  react-native-image-picker: c9bddc819f4fd46b6f37f2861712497e920192d9
   React-RCTActionSheet: 9f71d7ae3e8fb10e08d162cbf14c621349dbfab3
   React-RCTAnimation: 981d8c95b0e30918a9832ccac32af83562a27fae
   React-RCTBlob: 21e73d1020a302a75fed30dbaee9f15287b80baa
-  React-RCTCameraRoll: 06091c8da92d3417948bf984d094aaecd7a6bff4
   React-RCTImage: c0bc6ac0926517b6fb7e4c279b04843113e99d1d
   React-RCTLinking: 1af3f3c59114bed3deec0107c62e7efad0932ee5
   React-RCTNetwork: 35df9de46e19cda5c56380be1a7759b9b8cb2fcd
@@ -195,6 +206,6 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
-PODFILE CHECKSUM: 3c20508ad7b23b3172045f4326535bd98289457a
+PODFILE CHECKSUM: 83051fcfec97b177c81d1fefaf353cca6a1f03cb
 
 COCOAPODS: 1.7.4
