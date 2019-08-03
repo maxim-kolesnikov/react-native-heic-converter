@@ -24,7 +24,6 @@
 - [x] Returns the data for the encoded image in base64 format.
 - [x] Value of compression quality
 - [x] Support representation of an image in the Photos library.
-- [ ] Save to the photo gallery
 
 ## Mostly automatic installation
 
@@ -32,13 +31,28 @@
 
 ## Manual installation
 
+<details>
+    <summary>iOS (via CocoaPods)</summary>
 
-### iOS
+Add the following lines to your build targets in your `Podfile`
+
+```
+pod 'react-native-heic-converter', :path => '../node_modules/react-native-heic-converter'
+```
+
+Then run `pod install`
+
+</details>
+
+<details>
+    <summary>iOS (without CocoaPods)</summary>
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-heic-converter` and add `RNHeicConverter.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNHeicConverter.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
+
+</details>
 
 ## Static Methods
 
@@ -53,16 +67,16 @@
 | `extension`  | `string`  | `jpg`  | File extension that you want get when convert: `jpg` or `png` or `base64` |
 
 ## Usage
-```jsx
+```javascript
 import RNHeicConverter from 'react-native-heic-converter';
 
 RNHeicConverter
-    .convert({ // options
-        path: '/path/to/file.heic',
-    })
-    .then((result) => {
-        console.log(result); // { success: true, path: "path/to/jpg", error, base64, }
-    });
+	.convert({ // options
+		path: '/path/to/file.heic',
+	})
+	.then((result) => {
+		console.log(result); // { success: true, path: "path/to/jpg", error, base64, }
+	});
 ```
   
 **Please have a look at my [example usage](https://github.com/maxim-kolesnikov/react-native-heic-converter/blob/master/demo/App.js).**

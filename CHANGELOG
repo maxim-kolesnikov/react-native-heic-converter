@@ -1,3 +1,7 @@
+# 1.2.2
+
+- Fixed path for the new CameraRoll format `ph://XXXX/XX/XX`
+
 # 1.2.1
 
 - Add 'homepage' for RNHeicConverter.podspec
