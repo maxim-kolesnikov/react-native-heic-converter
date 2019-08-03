@@ -18,11 +18,11 @@
   "files": [
     "ios/RNHeicConverter.xcodeproj",
     "ios/RNHeicConverter.xcworkspace",
-    "ios/RNHeicConverter.podspec",
     "ios/RNHeicConverter.h",
     "ios/RNHeicConverter.m",
     "index.js",
-    "README.md"
+    "README.md",
+    "react-native-heic-converter.podspec"
   ],
   "keywords": [
     "react-native",
