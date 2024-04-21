@@ -11,6 +11,11 @@
     "react-native": "*",
     "react-native-windows": "*"
   },
+  "peerDependenciesMeta": {
+    "react-native-windows": {
+      "optional": true
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maxim-kolesnikov/react-native-heic-converter"
