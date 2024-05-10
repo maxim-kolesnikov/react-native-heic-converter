@@ -1,6 +1,6 @@
 {
   "name": "react-native-heic-converter",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "React Native Component for converts HEIC files on iOS.",
   "main": "index.js",
   "scripts": {

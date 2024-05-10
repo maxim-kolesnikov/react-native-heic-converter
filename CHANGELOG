@@ -1,3 +1,7 @@
+# 1.3.3
+
+- Changed "react-native-windows" to optional peerDependencies
+
 # 1.3.2
 
 - Changed "react-native-windows" peerDependencies version
